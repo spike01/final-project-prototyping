@@ -1,0 +1,92 @@
+{
+    "text": "#LetsGoMavs til the end RT @dallasmavs: Are You ALL IN?",
+    "truncated": false,
+    "retweeted": false,
+    "geo": null,
+    "retweet_count": 0,
+    "source": "web",
+    "in_reply_to_status_id_str": null,
+    "created_at": "Wed Apr 25 15:47:39 +0000 2012",
+    "in_reply_to_user_id_str": null,
+    "id_str": "195177260792299521",
+    "coordinates": null,
+    "in_reply_to_user_id": null,
+    "favorited": false,
+    "entities": {
+        "hashtags": [{
+            "text": "LetsGoMavs",
+            "indices": [0, 11]
+        }],
+        "urls": [],
+        "user_mentions": [{
+            "indices": [27, 38],
+            "screen_name": "dallasmavs",
+            "id_str": "22185437",
+            "name": "Dallas Mavericks",
+            "id": 22185437
+        }]
+    },
+    "contributors": null,
+    "user": {
+        "show_all_inline_media": true,
+        "statuses_count": 3101,
+        "following": null,
+        "profile_background_image_url_https": "https:\/\/si0.twimg.com\/profile_background_images\/285480449\/AAC_med500.jpg",
+        "profile_sidebar_border_color": "eeeeee",
+        "screen_name": "flyingcape",
+        "follow_request_sent": null,
+        "verified": false,
+        "listed_count": 2,
+        "profile_use_background_image": true,
+        "time_zone": "Mountain Time (US &amp; Canada)",
+        "description": "HUGE ROCKETS &amp; MAVS fan. Lets take down the Lakers &amp; beat up on the East. Inaugural member of the FC Dallas – Fort Worth fan club.",
+        "profile_text_color": "333333",
+        "default_profile": false,
+        "profile_background_image_url": "http:\/\/a0.twimg.com\/profile_background_images\/285480449\/AAC_med500.jpg",
+        "created_at": "Thu Oct 21 15:40:21 +0000 2010",
+        "is_translator": false,
+        "profile_link_color": "1212cc",
+        "followers_count": 35,
+        "url": null,
+        "profile_image_url_https": "https:\/\/si0.twimg.com\/profile_images\/1658982184\/204970_10100514487859080_7909803_68807593_5366704_o_normal.jpg",
+        "profile_image_url": "http:\/\/a0.twimg.com\/profile_images\/1658982184\/204970_10100514487859080_7909803_68807593_5366704_o_normal.jpg",
+        "id_str": "205774740",
+        "protected": false,
+        "contributors_enabled": false,
+        "geo_enabled": true,
+        "notifications": null,
+        "profile_background_color": "0a2afa",
+        "name": "Mandy",
+        "default_profile_image": false,
+        "lang": "en",
+        "profile_background_tile": true,
+        "friends_count": 48,
+        "location": "ATX \/ FDub. From Galveston !",
+        "id": 205774740,
+        "utc_offset": -25200,
+        "favourites_count": 231,
+        "profile_sidebar_fill_color": "efefef"
+    },
+    "id": 195177260792299521,
+    "place": {
+        "bounding_box": {
+            "type": "Polygon",
+            "coordinates": [
+                [
+                    [-97.938383, 30.098659],
+                    [-97.56842, 30.098659],
+                    [-97.56842, 30.49685],
+                    [-97.938383, 30.49685]
+                ]
+            ]
+        },
+        "country": "United States",
+        "url": "http:\/\/api.twitter.com\/1\/geo\/id\/c3f37afa9efcf94b.json",
+        "attributes": {},
+        "full_name": "Austin, TX",
+        "country_code": "US",
+        "name": "Austin",
+        "place_type": "city",
+        "id": "c3f37afa9efcf94b"
+    },
+    "in_reply_to_s

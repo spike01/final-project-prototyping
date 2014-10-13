@@ -1,0 +1,8 @@
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  var socket = io.connect('http://localhost');
+  socket.on('coord', function (data) {
+    console.log(data);
+    socket.emit('coordEcho', { my: 'data' });
+  });
+</script>

@@ -1,0 +1,10 @@
+{
+  "name": "twitter-socks",
+  "description": "socking twitter",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "express": "4.x",
+    "socket.io": "^1.1.0"
+  }
+}
