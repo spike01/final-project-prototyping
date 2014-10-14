@@ -44,9 +44,8 @@ io.on('connection', function (socket) {
   })
   
   socket.on('disconnect', function(){
-    stream.stop(function(){
-      console.log('Stream stopped')
-    })
+    stream.stop()
+    console.log('Stream stopped')
   })
 });
 
