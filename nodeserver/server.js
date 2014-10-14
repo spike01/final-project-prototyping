@@ -37,8 +37,8 @@ io.on('connection', function (socket) {
     if(tweet.geo != null && tweet.place != null){
       socket.volatile.emit('tweet',  { tweet: {
                                 text: tweet.text,
-                                coords: tweet.geo.coordinates
-                              }   
+                                coords: tweet.geo.coordinates,
+                                sentiment: 0}   
                             })
     }
   })
