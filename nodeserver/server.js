@@ -1,10 +1,13 @@
-var server = require('express')();
+var express = require('express');
+var server = express();
 var http = require('http').Server(server);
 var io = require('socket.io')(http);
 var Twit = require('twit')
 
 server.set('views', __dirname + '/views');
 server.set('view engine', 'ejs');
+
+server.use(express.static(__dirname + '/public'));
 
 server.get('/', function(request, response){
   response.render('index');
