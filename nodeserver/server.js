@@ -31,21 +31,23 @@ io.on('connection', function (socket) {
   var stream = T.stream('statuses/filter', { locations: new_york })
   stream.on('tweet', function(tweet){
     if(tweet.geo != null && tweet.place != null){
-      socket.emit('tweet', { tweet: {
-        text: tweet.text,
-        coords: tweet.geo.coordinates
-      }   
-      })
+      socket.emit('tweet',  { tweet: {
+                                text: tweet.text,
+                                coords: tweet.geo.coordinates
+                              }   
+                            })
     }
   })
+
   socket.on('echo', function(data){
     console.log(data);
   })
+  
   socket.on('disconnect', function(){
     stream.stop(function(){
-    console.log('Stream stopped')})
-})
+      console.log('Stream stopped')
+    })
+  })
 });
 
 //&& tweet.place.country === "United Kingdom" <-- code for country limiting
-
