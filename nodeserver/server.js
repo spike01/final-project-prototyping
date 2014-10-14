@@ -20,7 +20,7 @@ var san_fran = ['-122.75','36.8','-121.75','37.8']
 var new_york = ['-74','40','-73','41']
 
 var T = new Twit({
-    consumer_key: process.env.TWITTER_CONSUMER_KEY,
+  consumer_key: process.env.TWITTER_CONSUMER_KEY,
     consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
     access_token: process.env.TWITTER_OAUTH_TOKEN,
     access_token_secret: process.env.TWITTER_OAUTH_TOKEN_SECRET
@@ -41,6 +41,10 @@ io.on('connection', function (socket) {
   socket.on('echo', function(data){
     console.log(data);
   })
+  socket.on('disconnect', function(){
+    stream.stop(function(){
+    console.log('Stream stopped')})
+})
 });
 
 //&& tweet.place.country === "United Kingdom" <-- code for country limiting
