@@ -24,14 +24,14 @@ var new_york = ['-74','40','-73','41']
 
 var T = new Twit({
   consumer_key: process.env.TWITTER_CONSUMER_KEY,
-    consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
-    access_token: process.env.TWITTER_OAUTH_TOKEN,
-    access_token_secret: process.env.TWITTER_OAUTH_TOKEN_SECRET
+  consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
+  access_token: process.env.TWITTER_OAUTH_TOKEN,
+  access_token_secret: process.env.TWITTER_OAUTH_TOKEN_SECRET
 })
 
 
 io.on('connection', function (socket) { 
-  var stream = T.stream('statuses/filter', { locations: new_york })
+  var stream = T.stream('statuses/filter', { locations: world })
   stream.on('tweet', function(tweet){
     if(tweet.geo != null && tweet.place != null){
       socket.emit('tweet',  { tweet: {
