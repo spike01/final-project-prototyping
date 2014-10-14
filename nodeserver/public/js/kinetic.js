@@ -5,11 +5,8 @@ $(document).ready(function() {
     width: 1800,
     height: 900
   });
-
   var layer = new Kinetic.Layer();
-
   var socket = io.connect('http://localhost');
-
   var sentimentLookup = {
                           happy: 1,
                           sad: -1
@@ -22,16 +19,17 @@ $(document).ready(function() {
   function drawDot(tweetObj){
     var tweetColour = tweetObj.sentiment !== 0 ? 'red' : 'black'
     layer.add(
-        new Kinetic.Rect({
-          x: (tweetObj.coords[1]+180)*5,
-            y: (180-(tweetObj.coords[0]+90))*5,
-            width: 2,
-            height: 2,
-            fill: tweetColour,
-            stroke: tweetColour,
-            strokeWidth: 1
-        })
-      )}
+      new Kinetic.Circle({
+        x: (tweetObj.coords[1]+180)*5,
+        y: (180-(tweetObj.coords[0]+90))*5,
+        width: 2,
+        height: 2,
+        fill: tweetColour,
+        stroke: tweetColour,
+        strokeWidth: 1
+      })
+    )
+  }
 
   function drawLayer(){
     stage.add(layer)
@@ -39,17 +37,15 @@ $(document).ready(function() {
 
   setInterval(drawLayer, 30)
 
-  socket.on('tweet', function(data) {
+  socket.on('tweet', function(data){
     var tweetObj = data.tweet;
     stripPunctuation(tweetObj.text).split(' ').forEach(function(element){
       if(sentimentLookup[element]){
         tweetObj.sentiment += sentimentLookup[element];
-        }
-      })
-     drawDot(tweetObj)
-     //stage.add(layer);
-     socket.emit('echo', data);
-      })
-  });
+      }
+    })
+    drawDot(tweetObj);
+    socket.emit('echo', data);
+  })
 
-
+});

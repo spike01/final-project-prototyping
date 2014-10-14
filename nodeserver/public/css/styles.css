@@ -6,5 +6,5 @@ body {
 #container {
   width: 1802px;
   height: 902px;
-  border: solid 1px black;
+  margin: 0 auto;
 }
