@@ -13,6 +13,10 @@ server.get('/', function(request, response){
   response.render('index');
 });
 
+server.get('/index2', function(request, response){
+  response.render('index2');
+});
+
 http.listen(3000, function(){
   console.log('listening on port 3000');
 });
