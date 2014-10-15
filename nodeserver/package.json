@@ -1,0 +1,11 @@
+{
+  "name": "Twittersocks",
+  "version": "0.0.1",
+  "description": "Not sure what's going on here",
+  "dependencies": {
+    "ejs": "^1.0.0",
+    "express": "^4.9.5",
+    "socket.io": "^1.1.0",
+    "twit": "^1.1.18"
+  }
+}
