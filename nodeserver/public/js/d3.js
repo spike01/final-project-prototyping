@@ -21,10 +21,26 @@ var canvas = d3.select("#container").append("canvas")
 
 draw();
 
+function stripPunctuation(sentence){
+      return sentence.toLowerCase().replace(/[^\w\s]|_/g, "").replace(/\s+/g, " ")
+  }
+
 function zoom() {
   canvas.clearRect(0, 0, width, height);
   draw();
 }
+
+  function tweetColour(tweetObj) {
+    if(tweetObj.sentiment > 0){
+      return 'yellow'
+    } else {
+      if(tweetObj.sentiment < 0){
+        return 'red'
+      } else {
+        return '#54A6E4'
+      }
+    }
+  }
 
 function draw() {
   var i = -1, n = data.length, d, cx, cy;
@@ -35,7 +51,7 @@ function draw() {
     cy = y(d[1]);
     canvas.moveTo(cx, cy);
     canvas.arc(cx, cy, 2.5, 0, 2 * Math.PI);
-    canvas.fillStyle = "white"
+    canvas.fillStyle =  'white'    //  d[2] sets the colour globally; not for each tweet
   }
   canvas.fill();
 }
@@ -45,16 +61,16 @@ var counter = 0;
 setInterval(draw, 30)
 
   function addData(tweet) {
-    data[data.length] = [(tweet.coords[1]+180)*10, (tweet.coords[0]+180)*10]
+    data[data.length] = [(tweet.coords[1]+180)*10, (tweet.coords[0]+180)*10, tweetColour(tweet)]
   };
 
 socket.on('tweet', function(data){
   var tweetObj = data.tweet;
-  //   stripPunctuation(tweetObj.text).split(' ').forEach(function(element){
-  //   if(sentimentLookup[element]){
-  //     tweetObj.sentiment += sentimentLookup[element];
-  //   }
-  // })
+     stripPunctuation(tweetObj.text).split(' ').forEach(function(element){
+     if(sentimentLookup[element]){
+       tweetObj.sentiment += sentimentLookup[element];
+     }
+   })
   addData(tweetObj);
   counter += 1;
   $('#tweetCount').text(counter);
