@@ -5,19 +5,10 @@ $(document).ready(function() {
     width: 1800,
     height: 900
   });
-<<<<<<< HEAD
 
 
   var layer = new Kinetic.Layer();
   var socket = io.connect('http://localhost');
-=======
-  var layer = new Kinetic.Layer();
-  var socket = io.connect('http://localhost');
-  // var sentimentLookup = {
-  //                         happy: 1,
-  //                         sad: -1
-  //                       };
->>>>>>> 914c3bebe1dbceef15c5891b96c477b5fe4c2036
 
   function stripPunctuation(sentence){
       return sentence.toLowerCase().replace(/[^\w\s]|_/g, "").replace(/\s+/g, " ")
@@ -76,14 +67,13 @@ $(document).ready(function() {
     $('#tweetCount').text(counter);
     socket.emit('echo', data);
   })
-<<<<<<< HEAD
+
    $('.stop-connection').on('click', function() {
   socket.emit('stop');
  });
    socket.on('stop echo', function() {
     console.log('Stream stopped.');
    });
-=======
->>>>>>> 914c3bebe1dbceef15c5891b96c477b5fe4c2036
+
 
 });
