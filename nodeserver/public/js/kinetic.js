@@ -1,3 +1,5 @@
+var layer;
+
 $(document).ready(function() {
 
   var stage = new Kinetic.Stage({
@@ -7,7 +9,7 @@ $(document).ready(function() {
   });
 
 
-  var layer = new Kinetic.Layer();
+  layer = new Kinetic.Layer();
   var socket = io.connect('http://localhost');
 
   function stripPunctuation(sentence){
