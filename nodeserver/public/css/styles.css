@@ -1,6 +1,13 @@
 body {
   margin: 0;
   padding: 0;
+  background-color: #031D34;
+}
+
+h1 {
+  color: #54A6E4;
+  text-align: center;
+  font-family: Helvetica Neue;
 }
 
 #container {

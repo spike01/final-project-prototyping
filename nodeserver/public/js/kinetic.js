@@ -17,7 +17,7 @@ $(document).ready(function() {
   }
   
   function drawDot(tweetObj){
-    var tweetColour = tweetObj.sentiment !== 0 ? 'red' : 'black'
+    var tweetColour = tweetObj.sentiment !== 0 ? 'red' : '#54A6E4'
     layer.add(
       new Kinetic.Circle({
         x: (tweetObj.coords[1]+180)*5,
@@ -37,6 +37,8 @@ $(document).ready(function() {
 
   setInterval(drawLayer, 30)
 
+  var counter = 0;
+
   socket.on('tweet', function(data){
     var tweetObj = data.tweet;
     stripPunctuation(tweetObj.text).split(' ').forEach(function(element){
@@ -45,6 +47,8 @@ $(document).ready(function() {
       }
     })
     drawDot(tweetObj);
+    counter += 1;
+    $('#tweetCount').text(counter);
     socket.emit('echo', data);
   })
 

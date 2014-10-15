@@ -32,24 +32,23 @@ var T = new Twit({
 
 io.on('connection', function (socket) { 
   var stream = T.stream('statuses/filter', { locations: world })
-  var tweets = setInterval(function() {
-    stream.on('tweet', function(tweet){
+  
+  stream.on('tweet', function(tweet){
     if(tweet.geo != null && tweet.place != null){
-      socket.volatile.emit('tweet',  { tweet: {
+      socket.emit('tweet',  { tweet: {
                                 text: tweet.text,
                                 coords: tweet.geo.coordinates,
                                 sentiment: 0}   
                             })
     }
-  })
- }, 50);
+  });
 
   socket.on('echo', function(data){
     console.log(data);
   })
   
   socket.on('disconnect', function(){
-    clearInterval(tweets);
+    
     stream.stop()
     console.log('Stream stopped')
   })
