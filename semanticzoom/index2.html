@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Zoom + Pan</title>
+<style>
+
+  .overlay {
+    fill: none;
+    pointer-events: all;
+  }
+
+</style>
+<body>
+  <script src="jquery-2.1.1.min.js"></script>
+  <script src="kinetic-v5.1.0.min.js"></script>
+  <script src="http://d3js.org/d3.v3.min.js"></script>
+  <div id='container'></div>
+  <script>
+$(document).ready(function() {
+
+  var stage = new Kinetic.Stage({
+    container: 'container',
+    width: 1440,
+    height: 720
+  });
+
+  var layer = new Kinetic.Layer();
+
+  dataArray.forEach(function(point){
+    layer.add(
+      new Kinetic.Rect({
+        x: (point[1]+180)*40,
+        y: (180-(point[0]+90))*40,
+        width: 2,
+        height: 2,
+        fill: 'black',
+        stroke: 'black',
+        strokeWidth: 1
+      })
+    )
+  })
+
+// rect.on('mouseover', function(){
+//   this.stroke('orange');
+//   layer.draw();
+// })
+
+// rect.on('mouseout', function(){
+//   this.stroke('black');
+//   layer.draw();
+// })
+
+// stage.getContainer().addEventListener('click', function(){
+//   var hello = new Kinetic.Rect({
+//       x: 209.555223,
+//       y: 108.635942,
+//       width: 10,
+//       height: 10,
+//       stroke: 'black',
+//       strokeWidth: 1
+//   })
+//   layer.add(hello);
+//   stage.add(layer);
+// })
+
+stage.add(layer);
+
+});
+</script>
