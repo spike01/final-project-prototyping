@@ -25,6 +25,7 @@ var world = ['-180','-90','180','90']
 var istanbul = ['-74','40','74','41']
 var san_fran = ['-122.75','36.8','-121.75','37.8']
 var new_york = ['-74','40','-73','41']
+var spain = ['-18.1590','27.6363','4.3279','43.7900']
 
 var T = new Twit({
   consumer_key: process.env.TWITTER_CONSUMER_KEY,

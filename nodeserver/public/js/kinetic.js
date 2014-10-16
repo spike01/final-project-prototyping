@@ -40,15 +40,6 @@ $(document).ready(function() {
     )
   }
 
-  function setSentiment() {
-    var tweetObj = data.tweet;
-    stripPunctuation(tweetObj.text).split(' ').forEach(function(element){
-      if(sentimentLookup[element]){
-        tweetObj.sentiment += sentimentLookup[element];
-      }
-    })
-  }
-
   function drawLayer(){
     stage.add(layer)
   }
@@ -59,9 +50,10 @@ $(document).ready(function() {
 
   socket.on('tweet', function(data){
     var tweetObj = data.tweet;
+    var lang = data.tweet.lang;
     stripPunctuation(tweetObj.text).split(' ').forEach(function(element){
-      if(sentimentLookup[element]){
-        tweetObj.sentiment += sentimentLookup[element];
+      if(sentimentLookup[lang][element]){
+        tweetObj.sentiment += sentimentLookup[lang][element];
       }
     })
     drawDot(tweetObj);
