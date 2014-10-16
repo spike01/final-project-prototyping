@@ -49,11 +49,11 @@ function draw() {
     d = data[i];
     cx = x(d[0]);
     cy = y(d[1]);
-    canvas.beginPath();
-    canvas.fillStyle =  d[2] // sets the colour globally; not for each tweet
+    //canvas.beginPath();
+    canvas.fillStyle = "white" // sets the colour globally; not for each tweet
     canvas.moveTo(cx, cy);
     canvas.arc(cx, cy, 2.5, 0, 2 * Math.PI);
-    canvas.closePath();
+    //canvas.closePath();
   }
   canvas.fill();
 }
