@@ -27,10 +27,10 @@ var T = new Twit({
 
 var world = [ '-180', '-90', '180', '90' ]
 
-var stream = T.stream('statuses/filter', { locations: world })
+var stream = T.stream('statuses/sample' )
 
 var twitStream = stream.on('tweet', function (tweet) {
-	if(tweet.geo != null && tweet.place != null) { console.log(tweet)
+ { console.log(tweet.text)
 	};
 });
 
