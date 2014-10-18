@@ -60,20 +60,30 @@ function draw() {
 
 var counter = 0;
 
-setInterval(draw, 30)
+// setInterval(draw, 30)
 
   function addData(tweet) {
-    data[data.length] = [(tweet.coords[1]+180)*10, (tweet.coords[0]+180)*10, tweetColour(tweet)]
+    data[data.length] = [(tweet.coords[1]+180)*10, (tweet.coords[0]+90)*10, tweetColour(tweet)]
   };
 
 socket.on('tweet', function(data){
   var tweetObj = data.tweet;
-     stripPunctuation(tweetObj.text).split(' ').forEach(function(element){
-     if(sentimentLookup[element]){
-       tweetObj.sentiment += sentimentLookup[element];
-     }
-   })
+  stripPunctuation(tweetObj.text).split(' ').forEach(function(element){
+    if(sentimentLookup[element]){
+     tweetObj.sentiment += sentimentLookup[element];
+    }
+  })
   addData(tweetObj);
+
+  canvas.beginPath();
+  cx = x((tweetObj.coords[1]+180)*10);
+  cy = y((tweetObj.coords[0]+90)*10);
+  canvas.arc(cx, cy, 2, 0, 2 * Math.PI, false);
+  canvas.fillStyle = tweetColour(tweetObj);
+  console.log(tweetObj);
+  canvas.fill();
+  canvas.closePath();
+
   counter += 1;
   $('#tweetCount').text(counter);
   socket.emit('echo', data);
