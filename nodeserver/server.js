@@ -36,10 +36,13 @@ var T = new Twit({
 
 
 io.on('connection', function (socket) { 
+
   var stream = T.stream('statuses/filter', { locations: world })
   
   stream.on('tweet', function(tweet){
-    if(tweet.geo != null && tweet.place != null){
+
+    if(tweet.geo != null){
+
       socket.emit('tweet',  { tweet: {
                                 text: tweet.text,
                                 lang: tweet.user.lang,
@@ -58,6 +61,7 @@ io.on('connection', function (socket) {
     stream.stop()
     console.log('Stream stopped')
   })
+
   socket.on('stop', function() {
     console.log('Stream stopped');
     stream.stop(function() { 
