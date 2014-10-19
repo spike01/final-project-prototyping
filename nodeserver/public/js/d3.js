@@ -43,27 +43,19 @@ function zoom() {
   }
 
 
-  //canvas.beginPath();
-  //cx = x((tweetObj.coords[1]+180)*10);
-  //cy = y((tweetObj.coords[0]+90)*10);
-  //canvas.arc(cx, cy, 2, 0, 2 * Math.PI, false);
-  //canvas.fillStyle = tweetColour(tweetObj);
-  //console.log(tweetObj);
-  //canvas.fill();
-  //canvas.closePath();
-
 function draw() {
   var i = -1, n = data.length, d, cx, cy;
-  canvas.beginPath();
   while (++i < n) {
+    canvas.beginPath();
     d = data[i];
     cx = x(d[0]);
     cy = y(d[1]);
     canvas.fillStyle = d[2] // sets the colour globally; not for each tweet
     canvas.moveTo(cx, cy);
     canvas.arc(cx, cy, 2.5, 0, 2 * Math.PI);
+    canvas.fill()
+    canvas.closePath();
   }
-  canvas.fill()
 }
 
 var counter = 0;
